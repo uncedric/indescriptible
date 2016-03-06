@@ -1,0 +1,17 @@
+{
+  "expr": true,
+  "node": true,
+  "esnext": true,
+  "bitwise": true,
+  "eqeqeq": true,
+  "immed": true,
+  "latedef": "nofunc",
+  "unused":true,
+  "newcap": true,
+  "noarg": true,
+  "undef": true,
+  "predef": ["angular","window","alert","prompt","navigator","confirm"],
+  "smarttabs": true,
+  "asi": true,
+  "debug": true
+}

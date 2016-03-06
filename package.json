@@ -1,0 +1,59 @@
+{
+  "name": "indescriptible",
+  "version": "1.0.0",
+  "description": "Déjate llevar por indescriptible radio",
+  "main": "app.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uncedric/indescriptible.git"
+  },
+  "dependencies": {
+    "babel": "^5.8.23",
+    "bcryptjs": "^2.3.0",
+    "bluebird": "^2.9.6",
+    "body-parser": "~1.0.0",
+    "colors": "^1.0.3",
+    "connect-busboy": "0.0.1",
+    "cookie-parser": "~1.0.1",
+    "ejs": "^1.0.0",
+    "express": "4.x",
+    "express-mysql-session": "^0.3.1",
+    "express-session": "~1.0.0",
+    "lodash": "^3.10.1",
+    "method-override": "~1.0.0",
+    "mysql": "^2.3.0",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0",
+    "sanitizer": "^0.1.2",
+    "sequelize": "^3.5.1",
+    "shortid": "^2.0.0",
+    "webpack-stream": "^3.1.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "latest",
+    "gulp-nodemon": "^2.0.2",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-stylus": "^2.0.6",
+    "gulp-uglify": "latest",
+    "gulp-watch": "latest",
+    "mocha": "^2.2.1"
+  },
+  "keywords": [
+    "radio",
+    "streaming",
+    "indescriptible",
+    "cuernavaca",
+    "internet"
+  ],
+  "author": "uncedric",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uncedric/indescriptible/issues"
+  },
+  "homepage": "https://github.com/uncedric/indescriptible#readme"
+}

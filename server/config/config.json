@@ -1,0 +1,25 @@
+{
+  "db":
+  {
+    "dialect":"mysql",
+    "host": "localhost",
+    "user": "root",
+    "password": "",
+    "database":"tours"
+  },
+  "port":"3000",
+  "domain":"http://localhost:3000/",
+  "cryptKey":"Cat3a$$dRUE",
+  "mailer":
+    {
+      "service":"Gmail",
+      "user":"cerditosweb@gmail.com",
+      "pass":"pinkandpretty"
+    },
+  "facebook":
+    {
+      "id":"1432589226997284",
+      "secret":"f24529fec3aa69c9ff45ca3fcd9c7d01",
+      "callback":"http://localhost:3000/auth/facebook/callback"
+    }
+}
