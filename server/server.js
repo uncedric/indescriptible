@@ -11,14 +11,17 @@ app.use('/', require('./routes/index'));
 
 
 // Errores más amigables en caso de cosas inesperado
-app.use(function(err, req, res) {
-
-  console.error(err);
-    res.status(err.status || 500);
-  res.render('error', {
-      message: 'Ocurrió algo inesperado dentro de la aplicación, estamos trabajando para resolverlo.',
-      error: {}
-  });
+// app.use(function(err, req, res) {
+//
+//   console.error(err);
+//     res.status(err.status || 500);
+//   res.render('error', {
+//       message: 'Ocurrió algo inesperado dentro de la aplicación, estamos trabajando para resolverlo.',
+//       error: {}
+//   });
+// });
+app.use(function (req, res) {
+  res.send('Not found');
 });
 
 app.listen(config.port);

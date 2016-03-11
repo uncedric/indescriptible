@@ -20,7 +20,7 @@ gulp.task('nodemon',function () {
   nodemon({
     script: 'server/server.js',
     ext: 'js ejs',
-    ignore: ['public','node_modules'],
+    ignore: ['client','node_modules','server/views'],
     env: { 'NODE_ENV': 'dev' }
   });
 });
@@ -28,10 +28,10 @@ gulp.task('nodemon',function () {
 gulp.task('sync', function () {
   console.log('Iniciando browser sync');
   var files = [
-    'public/css/*.css',
+    'client/css/*.css',
     'client/scripts/**/*',
-    'public/styles/*.css',
-    'views/*.ejs'
+    'client/styles/*.css',
+    'server/views/*.ejs'
   ];
   browserSync.init(files, {
     proxy: 'localhost:' + config.port + '/',

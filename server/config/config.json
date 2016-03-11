@@ -5,7 +5,7 @@
     "host": "localhost",
     "user": "root",
     "password": "",
-    "database":"tours"
+    "database":"indescriptible"
   },
   "port":"3000",
   "domain":"http://localhost:3000/",

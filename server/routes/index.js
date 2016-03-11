@@ -42,15 +42,8 @@ router.get('/acerca-de', function (req, res) {
   res.render('index');
 });
 
-router.get('/contacto', function (req, res) {
-  res.render('index');
-});
 
-router.get('/tour/1', function (req, res) {
-  res.render('index');
-});
-
-router.get('/*', function (req,res) {
+router.get('/', function (req,res) {
   res.render('index');
 });
 

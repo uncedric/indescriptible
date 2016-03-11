@@ -5,7 +5,6 @@ var passport = require('passport'),
   LocalStrategy = require('passport-local').Strategy;
 
 var User = require('./../api/user/user.model');
-var nark = require('./config').nark;
 var sanitizer = require('sanitizer');
 var Promise   = require('bluebird');
 
