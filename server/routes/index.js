@@ -1,21 +1,13 @@
 var express = require('express');
 var router  = express.Router();
 var auth    = require('./../config/auth.js');
-var config = require('./../config/config.json');
 import Promise from 'bluebird';
 import cp from 'child_process';
 // import renderback from 'renderback';
 
-var passport        = auth.passport;
+var passport  = auth.passport;
 Promise.promisifyAll(cp);
 
-
-
-// renderback.configure({
-//   port:config.port,
-//   expires:3000,
-//   logs:true
-// });
 
 router.get('/login', function(req, res){
 
@@ -38,11 +30,7 @@ router.post('/login',
 
 router.get('/logout', function(req, res){req.logout();res.redirect('/');  });
 
-router.get('/acerca-de', function (req, res) {
-  res.render('index');
-});
-
-
+// Ruta principal de la aplicación
 router.get('/', function (req,res) {
   res.render('index');
 });
@@ -58,7 +46,7 @@ router.post('/deploy', function (req,res) {
     .then(function (data) {
       console.log('Pull realizado correctamente, procedemos a reiniciar el server'.green);
       console.log(data);
-      return cp.execAsync(`cd /home/intrabits/webapps/nodex/nodex && export PATH=$PWD/bin/:$PATH  && npm install --production && pm2 reload CimaTours`);
+      return cp.execAsync(`cd /home/intrabits/webapps/nodex && export PATH=$PWD/bin/:$PATH  && npm install --production && pm2 reload indescriptible`);
     })
     .catch(function (err) {
       console.error(err)
