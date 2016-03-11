@@ -46,7 +46,7 @@ router.post('/deploy', function (req,res) {
     .then(function (data) {
       console.log('Pull realizado correctamente, procedemos a reiniciar el server'.green);
       console.log(data);
-      return cp.execAsync(`cd /home/intrabits/webapps/nodex && export PATH=$PWD/bin/:$PATH  && npm install --production && pm2 reload indescriptible`);
+      return cp.execAsync(`cd /home/intrabits/webapps/nodex && export PATH=$PWD/bin/:$PATH  && cd /home/intrabits/webapps/indescriptible/indescriptible && npm install --production && pm2 reload indescriptible`);
     })
     .catch(function (err) {
       console.error(err)
