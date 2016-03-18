@@ -17,7 +17,7 @@ var config = require('./server/config/config.json');
 gulp.task('default',['sync','nodemon','watch'])
 
 gulp.task('nodemon',function () {
-  nodemon({
+  return nodemon({
     script: 'server/server.js',
     ext: 'js ejs',
     ignore: ['client','node_modules','server/views'],
@@ -33,7 +33,7 @@ gulp.task('sync', function () {
     'client/styles/*.css',
     'server/views/*.ejs'
   ];
-  browserSync.init(files, {
+  return browserSync.init(files, {
     proxy: 'localhost:' + config.port + '/',
     port:3001
   });
@@ -42,7 +42,7 @@ gulp.task('sync', function () {
 
 gulp.task('watch', function () {
 
-  watch('client/scripts/**/*.js', function () {
+  return watch('client/scripts/**/*.js', function () {
     console.log('hubo un cambio');
     gulp.src(
         [
@@ -68,7 +68,9 @@ gulp.task('watch', function () {
 });
 
 gulp.task('webpack',function () {
-  return gulp.src('client/entry.js')
+
+
+  return gulp.src()
     .pipe(webpack({
       entry:{
         app:'./client/scripts/app.js'
@@ -85,4 +87,39 @@ gulp.task('webpack',function () {
     // lo omitiremos, mejor lo haremos con gulp
     // .pipe(uglify())
     .pipe(gulp.dest('client/scripts/'));
+});
+
+gulp.task('webpacker',function () {
+
+  watch('client/scripts/app.js',function (file) {
+    console.log(file);
+    console.log(colors.rainbow('hubo un cambio!'))
+    gulp.src([
+      'client/'
+    ])
+    .pipe(webpack({
+      entry:{
+        app:'./client/scripts/app.js'
+      },
+      output:{
+        filename: 'bundle.js'
+      },
+      module: {
+        loaders: [
+          { test: /\.css$/, loader: "style-loader!css-loader" }
+        ],
+      },
+    }))
+    .on('error',function (err) {
+      console.error('Opsie'.red);
+      console.error(err)
+    })
+    .pipe(uglify())
+    .on('error',function (err) {
+      console.error('Opsie'.red);
+      console.error(err)
+    })
+    .pipe(gulp.dest('client/js/'));
+
+  });
 });
