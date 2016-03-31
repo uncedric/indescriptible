@@ -59,8 +59,8 @@ jQuery(document).ready(function($) {
           'day': 1,
           'month': 4,
           'year': 2016,
-          'hour': 0,
-          'min': 0,
+          'hour': 15,
+          'min': 30,
           'sec': 0
       },
 			omitWeeks: true
