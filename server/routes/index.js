@@ -27,6 +27,10 @@ router.get('/', function (req,res) {
 
 });
 
+router.get('/esperalo/',function (req, res) {
+  res.redirect('/');
+})
+
 router.get('/login', function(req, res){
 
   if (typeof req.query.err!=='undefined') {
