@@ -23,15 +23,18 @@
     "express": "4.x",
     "express-mysql-session": "^0.3.1",
     "express-session": "~1.0.0",
+    "file-loader": "^0.8.5",
     "jquery": "^1.11.3",
     "lodash": "^3.10.1",
     "method-override": "~1.0.0",
     "mysql": "^2.3.0",
     "passport": "^0.2.1",
     "passport-local": "^1.0.0",
+    "pretty-bytes": "^3.0.1",
     "sanitizer": "^0.1.2",
     "sequelize": "^3.5.1",
     "shortid": "^2.0.0",
+    "url-loader": "^0.5.7",
     "webpack-stream": "^3.1.0"
   },
   "devDependencies": {

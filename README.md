@@ -20,3 +20,8 @@ Streaming por internet
 - Mailing list ?
 - Perfiles de usuario (qué meter aquí?)
 - Blog
+
+# Pendientes viernes
+- Rey Cárdenas: preparar audio y dejarlo listo para ser lanzado desde la compu
+- Hacer una lista de canciones y determinar que fondo se va a poner o si serán videos de youtube
+- 

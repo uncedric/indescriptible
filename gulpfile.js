@@ -14,7 +14,7 @@ var webpack = require('webpack-stream');
 var config = require('./server/config/config.json');
 
 
-gulp.task('default',['sync','nodemon','watch'])
+gulp.task('default',['sync','nodemon','watch','webpacker'])
 
 gulp.task('nodemon',function () {
   return nodemon({
@@ -106,7 +106,8 @@ gulp.task('webpacker',function () {
       },
       module: {
         loaders: [
-          { test: /\.css$/, loader: "style-loader!css-loader" }
+          { test: /\.css$/, loader: "style-loader!css-loader" },
+          { test: /\.(png|woff|woff2|eot|ttf|svg|gif)$/, loader: 'url-loader?limit=100000' }
         ],
       },
     }))
@@ -114,11 +115,11 @@ gulp.task('webpacker',function () {
       console.error('Opsie'.red);
       console.error(err)
     })
-    .pipe(uglify())
-    .on('error',function (err) {
-      console.error('Opsie'.red);
-      console.error(err)
-    })
+    // .pipe(uglify())
+    // .on('error',function (err) {
+    //   console.error('Opsie'.red);
+    //   console.error(err)
+    // })
     .pipe(gulp.dest('client/js/'));
 
   });
