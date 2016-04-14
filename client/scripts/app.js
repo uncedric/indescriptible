@@ -15,7 +15,10 @@ require('./../assets/css/style.css')
 // require('./../assets/js/modernizr-2.8.0.min.js')
 require('./../assets/js/plugins.js')
 require('./../assets/js/functions.js')
-require('./../assets/js/jquery.ajaxchimp.min.js')
+// require('./../assets/js/jquery.ajaxchimp.min.js')
 
 // Aplicación
-console.log('holi');
+// console.log('holi');
+function agregarVisita(id) {
+  console.log(id)
+}

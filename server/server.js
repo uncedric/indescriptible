@@ -6,7 +6,7 @@ var os = require('os');
 var prettyBytes = require('pretty-bytes');
 
 // Api con la que se comunicará Angularjs y las aplicaciones móviles
-// app.use('/api/', require('./routes/api'));
+app.use('/api/', require('./routes/api'));
 
 // Rutas exclusivas que usaremos en node.js
 app.use('/', require('./routes/index'));

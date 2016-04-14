@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express.Router();
-var auth = require('./../config/auth');
+// var auth = require('./../config/auth');
 var config = require('./../config/config.json');
 
 app.get('/',function (req,res) {
@@ -11,6 +11,7 @@ app.get('/',function (req,res) {
 });
 
 app.use('/users/', require('./../api/user'));
+app.use('/videos/', require('./../api/video'));
 
 
 module.exports = app;

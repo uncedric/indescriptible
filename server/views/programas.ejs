@@ -1,157 +1,35 @@
 <!-- About Us Section -->
-<section id="programas" class="section-style section-white" >
+<section id="programas" class="section-style" >
   <div class="pattern height-resize">
     <div class="container">
-      <h3 class="section-name">
+      <h2 class="section-name">
         <span>
           Programas
         </span>
-      </h3><!-- /.section-name -->
+      </h2><!-- /.section-name -->
 
       <!-- /.Section-title  -->
       <p class="section-description">
         A continuación un listado de los contenidos que te podrás encontrar durante el día en Indescriptible Radio
       </p><!-- /.section-description -->
 
-      <div class="team-container">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="team-member">
-              <figure>
-                <img src="images/team/paco.jpg" alt="Team Member"  width="100%">
-                <figcaption>
-                  <p class="member-name">Paco</p>
-                  <p class="designation">
-
-                  </p><!-- /.designation -->
-
-                </figcaption>
-              </figure>
-              <div class="social-btn-container">
-                <div class="team-socail-btn">
-                  <span class="social-btn-box facebook-btn-container">
-                    <a href="https://www.facebook.com/indescriptibleradio/" class="facebook-btn">
-                      <i class="fa fa-facebook"></i>
-                    </a><!-- /.facebook-btn -->
-                  </span><!-- /.social-btn-box -->
-
-                  <span class="social-btn-box twitter-btn-container">
-                    <a href="#" class="twitter-btn">
-                      <i class="fa fa-twitter"></i>
-                    </a><!-- /.twitter-btn -->
-                  </span><!-- /.social-btn-box -->
-
-                  <span class="social-btn-box linkedin-btn-container">
-                    <a href="#" class="linkedin-btn">
-                      <i class="fa fa-linkedin"></i>
-                    </a><!-- /.linkedin-btn -->
-                  </span><!-- /.social-btn-box -->
-
-                  <span class="social-btn-box github-btn-container">
-                    <a href="#" class="github-btn">
-                      <i class="fa fa-github-alt"></i>
-                    </a><!-- /.github-btn -->
-                  </span><!-- /.social-btn-box -->
-                </div><!-- /.team-socail-btn -->
-              </div><!-- /.social-btn-container -->
-            </div><!-- /.team-member -->
-          </div><!-- /.col-sm-4 -->
-
-
-          <div class="col-sm-4">
-            <div class="team-member">
-              <figure>
-                <img src="images/team/toto.jpg" alt="Team Member"  width="100%">
-                <figcaption>
-                  <p class="member-name">
-                    Toto
-                  </p><!-- /.member-name -->
-                  <p class="designation">
-                    <!-- Director de arte -->
-                  </p><!-- /.designation -->
-
-                </figcaption>
-              </figure>
-              <div class="social-btn-container">
-                <div class="team-socail-btn">
-                  <span class="social-btn-box facebook-btn-container">
-                    <a href="https://www.facebook.com/indescriptibleradio/" class="facebook-btn">
-                      <i class="fa fa-facebook"></i>
-                    </a><!-- /.facebook-btn -->
-                  </span><!-- /.social-btn-box -->
-
-                  <span class="social-btn-box twitter-btn-container">
-                    <a href="#" class="twitter-btn">
-                      <i class="fa fa-twitter"></i>
-                    </a><!-- /.twitter-btn -->
-                  </span><!-- /.social-btn-box -->
-
-                  <span class="social-btn-box linkedin-btn-container">
-                    <a href="#" class="linkedin-btn">
-                      <i class="fa fa-linkedin"></i>
-                    </a><!-- /.linkedin-btn -->
-                  </span><!-- /.social-btn-box -->
-
-                  <span class="social-btn-box github-btn-container">
-                    <a href="#" class="github-btn">
-                      <i class="fa fa-github-alt"></i>
-                    </a><!-- /.github-btn -->
-                  </span><!-- /.social-btn-box -->
-                </div><!-- /.team-socail-btn -->
-              </div><!-- /.social-btn-container -->
-            </div><!-- /.team-member -->
-          </div><!-- /.col-sm-4 -->
-
-
-          <div class="col-sm-4">
-            <div class="team-member">
-              <figure>
-                <img src="images/team/alan.jpg" alt="Team Member" width="100%">
-                <figcaption>
-                  <p class="member-name">
-                    Alan
-                  </p><!-- /.member-name -->
-                  <p class="designation">
-                    <!-- Directora de operaciones -->
-                  </p><!-- /.designation -->
-
-                </figcaption>
-              </figure>
-              <div class="social-btn-container">
-                <div class="team-socail-btn">
-                  <span class="social-btn-box facebook-btn-container">
-                    <a href="https://www.facebook.com/indescriptibleradio/" class="facebook-btn">
-                      <i class="fa fa-facebook"></i>
-                    </a><!-- /.facebook-btn -->
-                  </span><!-- /.social-btn-box -->
-
-                  <span class="social-btn-box twitter-btn-container">
-                    <a href="#" class="twitter-btn">
-                      <i class="fa fa-twitter"></i>
-                    </a><!-- /.twitter-btn -->
-                  </span><!-- /.social-btn-box -->
-
-                  <span class="social-btn-box linkedin-btn-container">
-                    <a href="#" class="linkedin-btn">
-                      <i class="fa fa-linkedin"></i>
-                    </a><!-- /.linkedin-btn -->
-                  </span><!-- /.social-btn-box -->
-
-                  <span class="social-btn-box github-btn-container">
-                    <a href="#" class="github-btn">
-                      <i class="fa fa-github-alt"></i>
-                    </a><!-- /.github-btn -->
-                  </span><!-- /.social-btn-box -->
-                </div><!-- /.team-socail-btn -->
-              </div><!-- /.social-btn-container -->
-            </div><!-- /.team-member -->
-          </div><!-- /.col-sm-4 -->
-        </div><!-- /.row -->
-
-      </div><!-- /.team-container -->
+      <div id="wrapper">
+        <div id="gallery">
+          <div class="row">
+            <% videos.map(function (video){ %>
+              <div class="col-md-6 historial-video">
+                <h5><%= video.titulo %></h5>
+                <a href="http://youtu.be/<%= video.youtube %>" data-poptrox="youtube,800x480" onclick="agregarVisita(<%=video.id%>)" title="<%= video.titulo %>">
+                  <img src="http://img.youtube.com/vi/<%= video.youtube %>/0.jpg" alt="Foto <%=   video.titulo%>" width="100%">
+                </a>
+              </div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
 
       <div class="next-section">
-        <a class="go-to-subscribe"><span></span></a>
+        <a class="go-to-about"><span></span></a>
       </div><!-- /.next-section -->
 
     </div><!-- /.container -->

@@ -24,4 +24,9 @@ Streaming por internet
 # Pendientes viernes
 - Rey Cárdenas: preparar audio y dejarlo listo para ser lanzado desde la compu
 - Hacer una lista de canciones y determinar que fondo se va a poner o si serán videos de youtube
-- 
+-
+
+# En vivo
+´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´
+INSERT INTO `indescriptible`.`video` (`id`, `titulo`, `descripcion`, `youtube`, `programaId`, `visitas`, `createdAt`, `updatedAt`) VALUES (NULL, 'En vivo', 'Programa en vivo de Indescriptible Radio', 'dxUI5Cg26N4', '0', '0', '2016-04-14 00:00:00', '2016-04-14 00:00:00');
+´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´

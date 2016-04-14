@@ -115,11 +115,11 @@ gulp.task('webpacker',function () {
       console.error('Opsie'.red);
       console.error(err)
     })
-    // .pipe(uglify())
-    // .on('error',function (err) {
-    //   console.error('Opsie'.red);
-    //   console.error(err)
-    // })
+    .pipe(uglify())
+    .on('error',function (err) {
+      console.error('Opsie'.red);
+      console.error(err)
+    })
     .pipe(gulp.dest('client/js/'));
 
   });

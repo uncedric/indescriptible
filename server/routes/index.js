@@ -4,10 +4,28 @@ var auth    = require('./../config/auth.js');
 import Promise from 'bluebird';
 import cp from 'child_process';
 // import renderback from 'renderback';
-
+import Video from './../api/video/video.model';
 var passport  = auth.passport;
 Promise.promisifyAll(cp);
 
+
+// Ruta principal de la aplicación
+router.get('/', function (req,res) {
+  Video.findAll()
+    .then(function (videos) {
+      res.render('index',{
+        videos:videos
+      });
+      // Agregamos una visita al contador global, el cual será el video "En vivo"
+      videos[0].visitas = videos[0].visitas + 1;
+      return videos[0].save();
+    })
+    .catch(function (err) {
+      console.error(err);
+      res.render('error');
+    });
+
+});
 
 router.get('/login', function(req, res){
 
@@ -27,13 +45,12 @@ router.post('/login',
 
   });
 
-
-router.get('/logout', function(req, res){req.logout();res.redirect('/');  });
-
-// Ruta principal de la aplicación
-router.get('/', function (req,res) {
-  res.render('index');  
+// Cerrar sesión
+router.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
 });
+
 
 // bitbucket llama este de aquí :)
 router.post('/deploy', function (req,res) {

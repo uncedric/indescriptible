@@ -14,12 +14,15 @@ if (contactImage) {  jQuery('#contact').css({ 'background-image':'url(' + contac
 /* Background Images End
 -------------------------------------------------------------------*/
 
-
-
 /* Document Ready function
 -------------------------------------------------------------------*/
 jQuery(document).ready(function($) {
 	"use strict";
+
+	var foo = $('#gallery');
+	foo.poptrox({
+		usePopupCaption: true
+	});
 
 
     /* Window Height Resize
@@ -65,15 +68,6 @@ jQuery(document).ready(function($) {
       },
 			omitWeeks: true
 	  });
-
-		// targetOffset: {
-		// 	 'day':      3,
-		// 	 'month':    0,
-		// 	 'year':     0,
-		// 	 'hour':     0,
-		// 	 'min':      0,
-		// 	 'sec':      3
-		//  },
 
 
 
@@ -124,7 +118,7 @@ jQuery(document).ready(function($) {
 
 
 
-	
+
 
 
 	/* Contact End
