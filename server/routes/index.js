@@ -32,8 +32,7 @@ router.get('/logout', function(req, res){req.logout();res.redirect('/');  });
 
 // Ruta principal de la aplicación
 router.get('/', function (req,res) {
-  res.render('index');
-  res.redirect('/esperalo');
+  res.render('index');  
 });
 
 // bitbucket llama este de aquí :)

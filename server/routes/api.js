@@ -9,8 +9,8 @@ app.get('/',function (req,res) {
     domain:config.domain
   });
 });
+
 app.use('/users/', require('./../api/user'));
-app.use('/tours/', require('./../api/tour'));
 
 
 module.exports = app;
