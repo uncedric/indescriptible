@@ -14,7 +14,7 @@ var webpack = require('webpack-stream');
 var config = require('./server/config/config.json');
 
 
-gulp.task('default',['sync','nodemon','watch','webpacker'])
+gulp.task('default',['nodemon','watch','webpacker','sync'])
 
 gulp.task('nodemon',function () {
   return nodemon({
@@ -30,7 +30,6 @@ gulp.task('sync', function () {
   var files = [
     'client/css/*.css',
     'client/scripts/**/*',
-    'client/styles/*.css',
     'server/views/*.ejs'
   ];
   return browserSync.init(files, {
@@ -67,31 +66,11 @@ gulp.task('watch', function () {
 
 });
 
-gulp.task('webpack',function () {
 
-
-  return gulp.src()
-    .pipe(webpack({
-      entry:{
-        app:'./client/scripts/app.js'
-      },
-      output:{
-        filename: 'bundle.js'
-      },
-      module: {
-        loaders: [
-          { test: /\.css$/, loader: 'style!css' },
-        ],
-      },
-    }))
-    // lo omitiremos, mejor lo haremos con gulp
-    // .pipe(uglify())
-    .pipe(gulp.dest('client/scripts/'));
-});
 
 gulp.task('webpacker',function () {
 
-  watch('client/scripts/app.js',function (file) {
+  watch('client/scripts/**/**',function (file) {
     console.log(file);
     console.log(colors.rainbow('hubo un cambio!'))
     gulp.src([
@@ -107,7 +86,7 @@ gulp.task('webpacker',function () {
       module: {
         loaders: [
           { test: /\.css$/, loader: "style-loader!css-loader" },
-          { test: /\.(png|woff|woff2|eot|ttf|svg|gif)$/, loader: 'url-loader?limit=100000' }
+          { test: /\.(png|woff|woff2|eot|ttf|svg|gif|html)$/, loader: 'url-loader?limit=100000' }
         ],
       },
     }))

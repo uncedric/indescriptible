@@ -1,4 +1,25 @@
 var Video = require('./video.model');
+var Xray = require('x-ray');
+var xray = Xray();
+
+exports.youtube = function (req, res) {
+  var videos = [];
+  console.log('Cargando video anterior')
+  xray('https://www.youtube.com/channel/UCP1SEa4jrYDOjdJXUNcs8VA', ['a.yt-uix-tile-link@href',true])(function (err,data) {
+    if (err) {
+      console.log(err)
+      res.status(500).send('Erro al cargar el video :/');
+    } else {
+
+      data.map((item) => {
+        item = item.split('=');
+        videos.push(item[1]);
+      })
+
+      res.json(videos);
+    }
+  })
+}
 
 exports.index = function (req, res) {
   Video.findAll({ raw:true })
