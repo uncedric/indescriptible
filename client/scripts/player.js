@@ -1,19 +1,18 @@
+
+
 module.exports = ['$http',function ($http) {
 
   var vm = this;
-
-  var dateObj = new Date();
-  var month = dateObj.getUTCMonth() + 1; //months from 1-12
-  var day = dateObj.getUTCDate();
-  var year = dateObj.getUTCFullYear();
+  vm.loading = true;
 
   function getLastVideo(retransmision) {
     console.log('Cargando últimos videos')
     $http.get('api/videos/youtube')
       .success(function (data) {
-        console.log(data[1])
+
         if (retransmision) {
-          vm.iframe = '<iframe src="https://www.youtube.com/embed/' + data[0] + '?autoplay=1" width="{{$ctrl.playerWidth}}" frameborder="0" id="live-video" allowfullscreen></iframe>';
+          vm.loading = false;
+          vm.iframe = '<iframe src="https://www.youtube.com/embed/' + data[1] + '?autoplay=1"  frameborder="0" id="live-video" allowfullscreen></iframe>';
           document.getElementById('anterior').innerHTML = vm.iframe;
         }
 
@@ -24,10 +23,12 @@ module.exports = ['$http',function ($http) {
   }
 
   function verificarConexion(retransmision) {
-    $http.get('http://img.youtube.com/vi/dxUI5Cg26N4/0.jpg')
+    $http.get('api/videos/online')
       .success(function (data) {
         console.log(data);
         vm.live = true;
+        vm.loading = false;
+        document.getElementById('anterior').innerHTML = '.';
       })
       .error(function () {
         vm.live = false;
@@ -37,12 +38,17 @@ module.exports = ['$http',function ($http) {
       // volveremos a revisar la conexión en 1 minuto
       setTimeout(function() {
         verificarConexion(false);
-      }, 120000);
+      }, 90000);
   }
 
   verificarConexion(true);
 
 }];
+
+// var dateObj = new Date();
+// var month = dateObj.getUTCMonth() + 1; //months from 1-12
+// var day = dateObj.getUTCDate();
+// var year = dateObj.getUTCFullYear();
 
 // $('#time_countdown').countDown({
 //     targetDate: {

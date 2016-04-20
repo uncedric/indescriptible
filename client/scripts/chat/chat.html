@@ -1,0 +1,25 @@
+<form class="news-letter">
+  <p class="alert-success"></p>
+  <p class="alert-warning"></p>
+
+  <div class="subscribe-hide">
+    <input
+      class="form-control"
+      type="text"
+      ng-if="!$ctrl.user"
+      placeholder="Escribe tu nombre para escribir en el chat"
+      ng-model="$ctrl.ChatForm.name"  required>
+
+    <input
+      class="form-control"
+      type="text"
+      placeholder="Escribe tu mensaje..."
+      ng-if="$ctrl.user"
+      ng-model="$ctrl.ChatForm.text"  required>
+    <button  type="submit" ng-if="$ctrl.user" id="subscribe-submit" ng-click="$ctrl.send()" class="btn"><i class="fa fa-send"></i></button>
+    <button  type="submit" ng-if="!$ctrl.user" id="subscribe-submit" ng-click="$ctrl.login()" class="btn"><i class="fa fa-sign-in"></i></button>
+    <span id="subscribe-loading" class="btn"> <i class="fa fa-refresh fa-spin"></i> </span>
+    <div class="subscribe-error"></div>
+  </div><!-- /.subscribe-hide -->
+  <div class="subscribe-message"></div>
+</form><!-- /.news-letter -->

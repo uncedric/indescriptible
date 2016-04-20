@@ -2,6 +2,7 @@ var config = require('./config.json');
 var bcrypt = require('bcryptjs');
 var colors  = require('colors');
 var passport = require('passport'),
+  FacebookStrategy = require('passport-facebook').Strategy,
   LocalStrategy = require('passport-local').Strategy;
 
 var User = require('./../api/user/user.model');
@@ -63,6 +64,71 @@ passport.use(new LocalStrategy({
           console.error(err);
           done(err);
         });
+
+    });
+  }
+));
+
+// Use the FacebookStrategy within Passport.
+//   Strategies in Passport require a `verify` function, which accept
+//   credentials (in this case, an accessToken, refreshToken, and Facebook
+//   profile), and invoke a callback with a user object.
+passport.use(new FacebookStrategy({
+    clientID: config.facebook.id,
+    clientSecret: config.facebook.secret,
+    callbackURL: config.facebook.callback,
+    profileFields: ['id', 'displayName', 'email']
+  },
+  function(accessToken, refreshToken, profile, done) {
+
+    console.log('facebook')
+    process.nextTick(async function () {
+
+      nark.log('Usuario se intenta registrar utilizando facebook ');
+      nark.log(profile);
+
+      try {
+
+        let userEmail;
+
+        if (profile.emails && profile.emails[0]) {
+          userEmail = profile.emails[0].value;
+        } else {
+          userEmail = 'nope';
+        }
+
+        let user = await User.findOne({where:{
+          $or:{
+            email:userEmail,
+            facebook:profile.id
+          }
+        }});
+
+        if (user) {
+          console.log('Usuario logeado correctamente');
+          user.lastLogin = new Date();
+          user.save();
+          done(null,user);
+        } else {
+          // si no stiene cuenta lo damos de alta :)
+          console.log('Alta de usuario');
+          let nombre = profile.name.givenName || profile.displayName;
+          var datos = {
+            surname : profile.name.familyName,
+            name    : nombre,
+            email   : userEmail,
+            facebook : profile.id
+            // data: JSON.stringify(profile)
+          };
+          user = await User.create(datos);
+          done(null,user);
+        }
+      } catch (e) {
+        console.error(e);
+        done(e);
+      }
+
+
 
     });
   }

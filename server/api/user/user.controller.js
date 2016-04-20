@@ -27,6 +27,11 @@ exports.index = async function(req, res) {
 };
 // jshint ignore:end
 
+exports.login = function (req, res) {
+  console.log(req.body)
+  req.session.name = req.body.name;
+  res.send(req.session.name)
+}
 
 
 exports.update = function  (req,res) {

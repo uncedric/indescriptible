@@ -1,9 +1,16 @@
+<div ng-if="$ctrl.loading">
+  <h1 align="center">
+    <i class="fa fa-spinner fa-spin fa-5x"></i><br>
+    Cargando :)
+  </h1>
+</div>
 
 <iframe
   ng-if="$ctrl.live"
   src="https://www.youtube.com/embed/dxUI5Cg26N4?autoplay=1"
   width="{{$ctrl.playerWidth}}"
   frameborder="0" id="live-video" allowfullscreen></iframe>
+
 
 <div id="anterior"></div>
 

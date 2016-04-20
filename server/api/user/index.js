@@ -4,7 +4,9 @@ var auth = require('./../../config/auth');
 
 var router = express.Router();
 
-// router.get('/', controller.index);
+// micro inicio de sesión
+router.post('/', controller.login);
+
 router.get('/profile', auth.isLogged, controller.me);
 // actualizar perfil
 router.put('/profile', auth.isLogged, controller.update);
