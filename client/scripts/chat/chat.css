@@ -1,0 +1,8 @@
+ul#chat {
+  height: 200px;
+  overflow-y: scroll;
+  background:rgba(255,255,255,.7);  
+}
+ul#chat>li {
+  color:#444444;
+}

@@ -11,6 +11,7 @@ app.get('/',function (req,res) {
 });
 
 app.use('/users/', require('./../api/user'));
+app.use('/chat/', require('./../api/chat'));
 app.use('/config/', require('./../api/config'));
 app.use('/videos/', require('./../api/video'));
 

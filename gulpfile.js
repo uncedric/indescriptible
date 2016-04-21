@@ -14,7 +14,7 @@ var webpack = require('webpack-stream');
 var config = require('./server/config/config.json');
 
 
-gulp.task('default',['nodemon','watch','webpacker','sync'])
+gulp.task('default',['nodemon','webpacker','sync'])
 
 gulp.task('nodemon',function () {
   return nodemon({
@@ -71,7 +71,7 @@ gulp.task('watch', function () {
 gulp.task('webpacker',function () {
 
   watch('client/scripts/**/**',function (file) {
-    console.log(file);
+    
     console.log(colors.rainbow('hubo un cambio!'))
     gulp.src([
       'client/'

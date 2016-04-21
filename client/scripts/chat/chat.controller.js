@@ -1,35 +1,47 @@
-module.exports = ['Chat',function (Chat) {
+require('./chat.css');
+
+module.exports = ['$timeout',function ($timeout) {
 
   var vm = this;
-  vm.chat = [];
+  vm.chat = [{user:'Indescriptible Radio',text:'Bienvenido :)'}];
 
-  Chat.index()
-    .success(function (data) {
-      vm.chat = data;
-    })
-    .error(function (err) {
-      console.error(err)
-    });
+  var socket = io();
+
+  socket.on('chat:send',function (data) {
+    console.log('alguien mandó un mensaje!')
+
+    $timeout(function () {
+      vm.chat.push(data)
+    }, 0,true);
+    console.log(vm.chat)
+    // $('#chat').append( "<li class=\"list-group-item\" ><strong>" + data.user + "</strong>"  + data.text + '</li>');
+  });
+
 
   vm.login = function () {
     console.log('Iniciando sesión')
-    console.log(vm.ChatForm)
-    Chat.login(vm.ChatForm)
-      .success(function (data) {
-        vm.user = data;
-      })
-      .error(function (err) {
-        console.error(err)
-      });
+    var name = prompt('Escribe tu numbre :)');
+    if (name) {
+      vm.user = name;
+      socket.emit('chat:welcome',{ name:name });
+    }
   }
 
   vm.send = function () {
-    Chat.send(vm.ChatForm)
-      .success(function (data) {
-        vm.chat.push(data);
-      })
-      .error(function (err) {
-        console.error(err)
-      });
+    console.log('Enviando mensaje')
+
+    var data = {
+      text:vm.ChatForm.text,
+      user:vm.user
+    };
+
+    socket.emit('chat:send',data);
+    vm.chat.push(data)
+    console.log(vm.chat)
+    // $('#chat').append( "<li class=\"list-group-item\" ><strong>" + data.user + "</strong>"  + data.text + '</li>');
+    vm.ChatForm.text = '';
+
   }
+
+
 }];

@@ -1,25 +1,25 @@
-<form class="news-letter">
-  <p class="alert-success"></p>
-  <p class="alert-warning"></p>
+<ul id="chat" class="list-group" schroll-bottom="$ctrl.chat">
+  <li ng-repeat="item in $ctrl.chat track by $index" class="list-group-item" >
+    <strong>{{::item.user}}</strong> {{ ::item.text }}
+  </li>
+</ul>
 
-  <div class="subscribe-hide">
-    <input
-      class="form-control"
-      type="text"
-      ng-if="!$ctrl.user"
-      placeholder="Escribe tu nombre para escribir en el chat"
-      ng-model="$ctrl.ChatForm.name"  required>
+<button  type="button"  ng-if="!$ctrl.user" ng-click="$ctrl.login()" class="btn btn-primary form-control">
+  <i class="fa fa-send"></i> Participar en el chat
+</button>
 
+<form ng-if="$ctrl.user" class="row" ng-submit="$ctrl.send()">
+  <div class="col-sm-9">
     <input
       class="form-control"
       type="text"
       placeholder="Escribe tu mensaje..."
-      ng-if="$ctrl.user"
-      ng-model="$ctrl.ChatForm.text"  required>
-    <button  type="submit" ng-if="$ctrl.user" id="subscribe-submit" ng-click="$ctrl.send()" class="btn"><i class="fa fa-send"></i></button>
-    <button  type="submit" ng-if="!$ctrl.user" id="subscribe-submit" ng-click="$ctrl.login()" class="btn"><i class="fa fa-sign-in"></i></button>
-    <span id="subscribe-loading" class="btn"> <i class="fa fa-refresh fa-spin"></i> </span>
-    <div class="subscribe-error"></div>
-  </div><!-- /.subscribe-hide -->
-  <div class="subscribe-message"></div>
-</form><!-- /.news-letter -->
+      ng-model="$ctrl.ChatForm.text">
+  </div>
+  <div class="col-sm-3">
+    <button  type="submit" class="btn btn-primary form-control" >
+      <i class="fa fa-send"></i> Enviar</button>
+  </div>
+
+  <span id="subscribe-loading" class="btn"> <i class="fa fa-refresh fa-spin"></i> </span>
+</form>

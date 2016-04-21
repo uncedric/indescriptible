@@ -1,6 +1,11 @@
 
 exports.index = function (req, res) {
-  res.json(['uno','dos','tres']);
+  res.json([
+    {
+      user:'Indescriptible',
+      text:'Bienvenido!'
+    }
+  ]);
 }
 
 exports.create = function (req, res) {

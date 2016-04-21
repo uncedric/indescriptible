@@ -23,9 +23,8 @@ var sessionStore = new SessionStore(options);
 var passport = auth.passport;
 
 
-  var app = express();
-
-// configure Express
+module.exports = function (app) {
+  // configure Express
   app.set('views', __dirname + './../views');
   app.set('view engine', 'ejs');
   // app.use(logger()); // Esta es la cosa que llena todo de logs ¬¬
@@ -55,9 +54,4 @@ var passport = auth.passport;
 
   app.use(express.static(__dirname + './../../client'));
 
-
-  // console.log(app.settings.env);
-
-
-
-  module.exports.app = app;
+};

@@ -3,8 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<title>	Indescriptible Radio</title>
-	<meta name="description" content="Streaming de música y video" >
-	<meta name="author" content="Indescriptible radio">
+	<meta name="description" content="Audio y video en vivo, streaming de música, bandas en vivo, entrevistas y mucho más" >
+	<meta name="author" content="Indescriptible Radio">
+	<meta property="og:site_name" content="Indescriptible Radio">
+	<meta property="og:title" content="Porque la radio también se ve">
+	<meta property="og:description" content="Audio y video en vivo, streaming de música, bandas en vivo, entrevistas y mucho más">
+	<meta property="og:image" content="images/indescriptible.png">
+	<script src="socket.io/socket.io.js"></script>
+	<!-- <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>   -->
 
 	<!-- Mobile Specific Meta -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -106,7 +112,7 @@
 
 				<!-- <player></player>				 -->
 				<%-player%>
-				<!-- <chat></chat> -->
+				<chat></chat>
 
 
 				<% include countdown %>

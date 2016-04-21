@@ -8,7 +8,6 @@ require('./../assets/css/style.css')
 // Funciones del tema
 require('./../assets/js/plugins.js')
 require('./../assets/js/functions.js')
-// require('./../assets/js/jquery.ajaxchimp.min.js')
 
 // Módulos de angular
 require('./chat/chat.service')
@@ -26,5 +25,19 @@ angular
       controller:require('./chat/chat.controller')
     })
     .controller('MainCtrl',function () {
-      console.log('holi :2');
+      
     })
+    .directive('schrollBottom', function () {
+      return {
+        scope: {
+          schrollBottom: "="
+        },
+        link: function (scope, element) {
+          scope.$watchCollection('schrollBottom', function (newValue) {
+            if (newValue) {
+              $(element).scrollTop($(element)[0].scrollHeight);
+            }
+          });
+        }
+      }
+    });
