@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Indescriptible radio</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.1.0/octicons.min.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="container" style="">
+      <h1 align="center">La Indescriptible</h1>
+      <div class="well">
+        <!-- <form onsubmit="hablar()" action="#"> -->
+          <div class="row">
+            <div class="col-md-6">
+              <input type="text" id="texto" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <input type="button" class="form-control" value="Hablar!" onclick="hablar()">
+              <input type="button" onclick='pop("./voz.html");'>
+            </div>
+          </div>
+        <!-- </form> -->
+
+      </div>
+    </div>
+
+
+    <script>
+
+    function hablar() {
+      var msg = new SpeechSynthesisUtterance();
+      var voices = window.speechSynthesis.getVoices();
+      msg.voice = voices[10]; // Note: some voices don't support altering params
+      msg.voiceURI = 'native';
+      msg.volume = 1; // 0 to 1
+      msg.rate = 1; // 0.1 to 10
+      // msg.pitch = 2; //0 to 2
+      msg.text = $('#texto').val();
+      msg.lang = 'es-MX';
+
+      speechSynthesis.speak(msg);
+      $('#texto').val('');
+      $('#texto').focus();
+    }
+
+    function pop(url) {
+    	newwindow=window.open(url,'name','height=200,width=500');
+    	if (window.focus) {newwindow.focus()}
+    	return false;
+    }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+  </body>
+</html>
