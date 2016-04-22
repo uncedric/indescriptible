@@ -24,7 +24,9 @@ module.exports = ['$timeout',function ($timeout) {
     if (name) {
       vm.user = name;
       socket.emit('chat:welcome',{ name:name });
-      $('#texto').focus();
+      setTimeout(function() {
+        $('#texto').focus();        
+      }, 500);
     }
   }
 
