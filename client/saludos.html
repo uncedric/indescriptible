@@ -62,14 +62,14 @@
     <script>
     var socket = io();
     var nombreDelPrograma = prompt('Escribe el nombre del programa');
+    var audio = new Audio('assets/alert.mp3');
     setNombre();
-
-
+    
     socket.on('chat:send',function (data) {
       $('#programa').html('');
       console.log('alguien mandó un mensaje!')
       console.log(data)
-      var audio = new Audio('assets/alert.mp3');
+
       audio.play();
       $('#text').html(data.text)
       $('#user').html(data.user + ' dice:')

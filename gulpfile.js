@@ -71,7 +71,7 @@ gulp.task('watch', function () {
 gulp.task('webpacker',function () {
 
   watch('client/scripts/**/**',function (file) {
-    
+
     console.log(colors.rainbow('hubo un cambio!'))
     gulp.src([
       'client/'

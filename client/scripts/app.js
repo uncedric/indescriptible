@@ -14,8 +14,21 @@ require('./chat/chat.service')
 // Aplicación
 angular
   .module('app',[
+    require('angular-route'),
     'app.chat.service'
   ])
+    .config(['$routeProvider',function ($routeProvider) {
+      $routeProvider
+        .when('/', {
+          template: '<dashboard></dashboard>'
+        })
+        .when('/historial', {
+          template: '<historial></historial>'
+        })
+        .otherwise({
+          redirectTo: '/'
+        });
+    }])
     .component('player',{
       templateUrl:'scripts/views/player.html',
       controller:require('./player')
@@ -25,7 +38,7 @@ angular
       controller:require('./chat/chat.controller')
     })
     .controller('MainCtrl',function () {
-      
+
     })
     .directive('schrollBottom', function () {
       return {

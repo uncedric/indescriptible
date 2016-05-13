@@ -1,6 +1,6 @@
 <ul id="chat" class="list-group" schroll-bottom="$ctrl.chat">
   <li ng-repeat="item in $ctrl.chat track by $index" class="list-group-item" >
-    <strong>{{::item.user}}</strong> {{ ::item.text }}
+    <strong>{{::item.user}}</strong> {{ ::item.message }}
   </li>
 </ul>
 
@@ -15,12 +15,18 @@
       type="text"
       id="texto"
       placeholder="Escribe tu mensaje..."
-      ng-model="$ctrl.ChatForm.text">
+      ng-model="$ctrl.ChatForm.message">
   </div>
   <div class="col-sm-3">
     <button  type="submit" class="btn btn-primary form-control" >
       <i class="fa fa-send"></i> Enviar</button>
   </div>
+
+  <div class="col-sm-12" style="padding:30px">
+    Estás chateando como {{::$ctrl.user}}
+    <a href="javascript:;" ng-click="$ctrl.login()">Cambiar nombre</a>
+  </div>
+
 
   <span id="subscribe-loading" class="btn"> <i class="fa fa-refresh fa-spin"></i> </span>
 </form>

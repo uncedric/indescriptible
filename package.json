@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "angular": "^1.5.1",
+    "angular-route": "^1.5.5",
     "babel": "^5.8.23",
     "bcryptjs": "^2.3.0",
     "bluebird": "^2.9.6",

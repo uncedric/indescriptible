@@ -6,7 +6,7 @@
       .factory ('Chat', ['$http',function ($http) {
 
         return {
-          index:function () {
+          historial:function () {
             return $http.get('/api/chat/');
           },
           send:function (data) {
